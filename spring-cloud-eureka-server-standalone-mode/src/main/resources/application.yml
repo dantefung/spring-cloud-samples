@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+
+eureka:
+  instance:
+    hostname: localhost
+  ## 在默认设置下，该服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为
+  client:
+    ## 是否将自己注册到Eureka Server，默认为true.
+    registerWithEureka: false
+    ## 是否从注册中心拉取注册表,默认为true.
+    fetchRegistry: false
+  serviceUrl:
+    defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
