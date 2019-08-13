@@ -5,11 +5,11 @@ server:
 eureka:
   instance:
     hostname: localhost
-  ## 在默认设置下，该服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为
+  ## 鍦ㄩ粯璁よ缃笅锛岃鏈嶅姟娉ㄥ唽涓績涔熶細灏嗚嚜宸变綔涓哄鎴风鏉ュ皾璇曟敞鍐屽畠鑷繁锛屾墍浠ユ垜浠渶瑕佺鐢ㄥ畠鐨勫鎴风娉ㄥ唽琛屼负
   client:
-    ## 是否将自己注册到Eureka Server，默认为true.
+    ## 鏄惁灏嗚嚜宸辨敞鍐屽埌Eureka Server锛岄粯璁や负true.
     registerWithEureka: false
-    ## 是否从注册中心拉取注册表,默认为true.
+    ## 鏄惁浠庢敞鍐屼腑蹇冩媺鍙栨敞鍐岃〃,榛樿涓簍rue.
     fetchRegistry: false
   serviceUrl:
     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
