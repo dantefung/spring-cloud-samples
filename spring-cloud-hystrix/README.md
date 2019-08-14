@@ -4,7 +4,7 @@
 
   服务雪崩效应是一种因“服务提供者”的不可用导致“服务消费者”的不可用,并将不可用逐渐放大的过程。
   
-
+> 摘自《如何健壮你的后端服务》
 > 如果第三方服务挂掉怎么办？我们的业务也跟着挂掉？显然不是我们希望看到的结果，如果能制定好降级方案，那将大大提高
 >
 >  服务的可靠性。
@@ -14,6 +14,20 @@
 >  显然不行，我们可以在cache里放置一份热门商品以便兜底。
 >
 >  而Netflix 的Hystrix熔断器就是保护服务高可用的最后一道防线。
+
+> 摘自Spring Cloud官网文档: [circuit_breaker_hystrix_clients](https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_circuit_breaker_hystrix_clients)
+> A service failure in the lower level of services can cause cascading failure all the way up to the user. 
+> When calls to a particular service exceed circuitBreaker.requestVolumeThreshold (default: 20 requests) 
+> and the failure percentage is greater than circuitBreaker.errorThresholdPercentage (default: >50%) 
+> in a rolling window defined by metrics.rollingStats.timeInMilliseconds (default: 10 seconds), 
+> the circuit opens and the call is not made. In cases of error and an open circuit, 
+> a fallback can be provided by the developer.
+![HystrixFallback](./doc/img/HystrixFallback.png)
+
+> Having an open circuit stops cascading failures and allows overwhelmed or failing services time to recover. 
+> The fallback can be another `Hystrix protected call`,`static data`, or `a sensible empty value`. 
+> Fallbacks may be chained so that the first fallback makes some other business call, which in turn falls back to static data.
+
 
 ## 工程简介
 - spring-cloud-consumer: 服务消费者工程，开启了Hystrix功能。
