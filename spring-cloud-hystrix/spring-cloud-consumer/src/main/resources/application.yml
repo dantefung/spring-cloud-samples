@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: consumer
+
+server:
+  port: 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+## 参见: https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#spring-cloud-feign
+##  23.4 Feign Hystrix Support
+feign:
+  hystrix:
+    enabled: true
