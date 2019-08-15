@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: order-application
+      profile: dev
+      uri: http://localhost:8001/
+      label: master
