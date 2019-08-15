@@ -1,6 +1,6 @@
 spring:
   application:
-    name: consumer
+    name: consumer-hystrix-dashboard
 
 server:
   port: 8002
@@ -27,3 +27,36 @@ management:
     web:
       exposure:
         include: hystrix.stream
+
+###################################################################################
+## 参见:https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_turbine
+## 15.2 Turbine
+## By default, Turbine looks for the /hystrix.stream endpoint on a registered instance by looking up its hostName and port entries
+##   in Eureka and then appending /hystrix.stream to it.
+##  默认情况下，Turbine
+##  The turbine stream is then used in the Hystrix dashboard with a URL similar to the following:
+##
+##   https://my.turbine.server:8080/turbine.stream?cluster=CLUSTERNAME
+###################################################################################
+
+# The turbine.appConfig configuration key is a list of Eureka serviceIds that turbine uses to lookup instances.
+# turbine appConfig 配置的字符键，内容是Eureka注册服务的serviceIds列表(笔者注:serviceId就是每个eureka客户端配置的spring.application.name的值。该值标记了每个应用在微服务架构中为一个独立的服务。)
+# 配置的这些serviceId(要被监控的服务)将被Turbine监控
+turbine:
+  appConfig: consumer-node1,consumer-node2
+# The cluster parameter can be omitted if the name is default.
+# turbine.aggregator.clusterConfig  如果填了default 这个配置项目将被忽略.  指定聚合哪些集群，多个使用”,”分割，默认为default。
+# The cluster parameter must match an entry in turbine.aggregator.clusterConfig. Values returned from Eureka are upper-case.
+# turbine.aggregator.clusterConfig 这个配置参数 xxxx(不翻译了-A-\\\).
+#
+  aggregator:
+    clusterConfig: default
+# TODO: 得好好理解Turbine的Design And Architecture。也就是它的设计哲学。这块还没深入去理解。
+  clusterNameExpression: "'default'"
+
+# 参见:https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_clusters_endpoint
+# In some situations it might be useful for other applications to know what custers have been configured in Turbine.
+# To support this you can use the /clusters endpoint which will return a JSON array of all the configured clusters.
+# 有时候，对于一些其他的应用来说，知道哪些集群已经配置在Turbine中是非常有用的。
+# 为了能满足这点，你可以通过访问 http://域名:端口/clusters 终端来查看。
+

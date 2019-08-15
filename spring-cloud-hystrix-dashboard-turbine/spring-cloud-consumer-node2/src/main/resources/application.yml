@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: consumer-node2
+
+server:
+  port: 8004
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+## 参见: https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#spring-cloud-feign
+##  23.4 Feign Hystrix Support
+## Feign Hystrix 仅仅依赖了hystrix-core
+feign:
+  hystrix:
+    enabled: false
+
+## 参见:https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_circuit_breaker_hystrix_clients
+## 13.4  Hystrix Metrics Stream
+## To enable the Hystrix metrics stream, include a dependency on spring-boot-starter-actuator and set management.endpoints.web.exposure.include: hystrix.stream.
+## Doing so exposes the /actuator/hystrix.stream as a management endpoint
+## 浏览器地址栏访问本机单应用监控:http://localhost:8002/actuator/hystrix
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+

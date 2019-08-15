@@ -65,28 +65,6 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
-        <!--
-            摘自:https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_turbine
-            15.2 Turbine
-            Looking at an individual instance’s Hystrix data is not very useful in terms of the overall health of the system.
-            就系统整体健康的角度来说，查看单个Hystrix实例的数据并不是非常有用。
-            Turbine is an application that aggregates all of the relevant /hystrix.stream endpoints into a combined /turbine.stream for use in the Hystrix Dashboard.
-            Turbine 是一个应用，该应用可以收集所有相关终端的/hystrix.stream(里边的监测指标信息数据报[note:笔者自行添加的])合并到/turbine.stream(指标信息数据报[note:笔者自行添加的])中，用于Hystrix看板。
-
-
-            note:中文翻译为意译，并不完全按英文语序和从句类型翻译。
-
-            关于Turbine的更多详细内容，可查看github上的wiki:https://github.com/Netflix/Turbine/wiki/Configuration-(1.x)
-
-            Spring Cloud provides a spring-cloud-starter-netflix-turbine that has all the dependencies you need to get a Turbine server running.
-            To add Turbine, create a Spring Boot application and annotate it with @EnableTurbine.
-
-        -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-turbine</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
