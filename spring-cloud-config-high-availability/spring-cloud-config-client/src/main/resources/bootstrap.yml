@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      name: order-application
+      profile: dev
+      label: master
+      discovery:
+        # 开启Config服务发现支持
+        enabled: true
+        # 指定server端的name,也就是server端spring.application.name的值
+        serviceId: spring-cloud-config-server
