@@ -1,0 +1,53 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置git仓库的地址
+          uri: https://github.com/dantefung/spring-cloud-samples
+          # git仓库地址下的相对地址，可以配置多个，用,分割。
+          search-paths: config-repo
+          # 仓库如果是公开的，可以不填写username和password
+          # git仓库的账号
+          username:
+          # git仓库的密码
+          password:
+    # 是否启用spring cloud config bus
+    bus:
+      enabled: true
+      # 开启跟踪总线事件
+      trace:
+        enabled: true
+
+  ## 消息队列配置
+  rabbitmq:
+    host: 192.168.126.129
+    port: 5672
+    username: admin
+    password: 123456
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/   # 注册中心eurka地址
+
+
+## 43.1 Bus Refresh Endpoint
+    #The /actuator/bus-refresh endpoint clears the RefreshScope cache and rebinds @ConfigurationProperties. See the Refresh Scope documentation for more information.
+    #
+    #To expose the /actuator/bus-refresh endpoint, you need to add following configuration to your application:
+    #
+    #management.endpoints.web.exposure.include=bus-refresh
+    #
+##  在Springboot2.0之前是直接访问http://localhost:8888/actuator/bus/refresh去通知配置服务器分发消息的，
+##  而到了Springboot 2.0之后Config客户端自动刷新时没有/bus/refresh端点，所以需要如下配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
