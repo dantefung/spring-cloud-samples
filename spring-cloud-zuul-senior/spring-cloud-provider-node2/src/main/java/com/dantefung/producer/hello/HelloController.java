@@ -29,6 +29,6 @@ public class HelloController {
         } catch (InterruptedException e) {
             logger.error(e.getMessage());
         }
-        return "Node 1:" + StringUtils.defaultIfBlank(name,"") + "Say hi~~";
+        return "Node 2:" + StringUtils.defaultIfBlank(name,"") + "Say hi~~";
     }
 }
