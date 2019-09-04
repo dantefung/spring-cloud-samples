@@ -1,16 +1,21 @@
-# ÈçºÎÊ¹ÓÃ±¾demo£¿
+# å¦‚ä½•ä½¿ç”¨æœ¬demoï¼Ÿ
 
-# Æô¶¯ÏîÄ¿
-1.Æô¶¯spring-cloud-eurekaÏîÄ¿
-2.Æô¶¯spring-cloud-zuulÏîÄ¿
-3.Æô¶¯spring-cloud-providerÏîÄ¿
-4.Æô¶¯zipkin server
+# å¯åŠ¨é¡¹ç›®
+1.å¯åŠ¨spring-cloud-eurekaé¡¹ç›®
 
-ÃüÁîĞĞÖÕ¶Ë½øÈëspring-cloud-sleuth-with-zipkin/doc/,Ö´ĞĞÈçÏÂÃüÁî:
+2.å¯åŠ¨spring-cloud-zuulé¡¹ç›®
+
+3.å¯åŠ¨spring-cloud-provideré¡¹ç›®
+
+4.å¯åŠ¨zipkin server
+
+
+å‘½ä»¤è¡Œç»ˆç«¯è¿›å…¥spring-cloud-sleuth-with-zipkin/doc/,æ‰§è¡Œå¦‚ä¸‹å‘½ä»¤:
 ```
   java -jar zipkin-server-2.9.4-exec.jar
 ```
 
-# ²âÊÔ
-1.·ÃÎÊhttp://localhost:8888/provider/hello
-2.ä¯ÀÀÆ÷´ò¿ª:http://localhost:9411/  ¿ÉÒÔ²é¿´µ½µ÷ÓÃÁ´Â·ĞÅÏ¢.
+# æµ‹è¯•
+1.è®¿é—®http://localhost:8888/provider/hello
+
+2.æµè§ˆå™¨æ‰“å¼€:http://localhost:9411/  å¯ä»¥æŸ¥çœ‹åˆ°è°ƒç”¨é“¾è·¯ä¿¡æ¯.
