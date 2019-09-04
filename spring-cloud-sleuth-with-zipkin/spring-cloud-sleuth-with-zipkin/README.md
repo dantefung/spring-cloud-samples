@@ -3,3 +3,5 @@
         到 https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/ 下载相应的jar包。
 
         执行 java -jar zipkin-server-2.9.4-exec.jar 命令启动Zipkin Server，端口默认是9411
+        
+执行spring-cloud-sleuth-with-zipkin/doc/zipkin-server-2.12.9-exec.jar 即可启动zipkin的服务端        
